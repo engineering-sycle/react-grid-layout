@@ -29,7 +29,7 @@
     "fluid",
     "responsive"
   ],
-  "author": "Sycle",
+  "author": "Sycle <engineering@sycle.net> (https://sycle.net)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/engineering-sycle/react-grid-layout/issues"
