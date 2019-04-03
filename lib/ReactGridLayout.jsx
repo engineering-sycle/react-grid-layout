@@ -259,6 +259,16 @@ export default class ReactGridLayout extends React.Component<Props, State> {
     this.onLayoutMaybeChanged(this.state.layout, this.props.layout);
   }
 
+  componentDidUpdate(prevProps: Props) {
+    // Children were updated -- make sure to inform the parent.
+    if (
+      React.Children.count(prevProps.children) !==
+      React.Children.count(this.props.children)
+    ) {
+      this.props.onLayoutChange(this.state.layout);
+    }
+  }
+
   static getDerivedStateFromProps(props: Props, state: State) {
     // Dragging -- update the layout
     if (state.activeDrag) {

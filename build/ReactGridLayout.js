@@ -115,6 +115,18 @@ var ReactGridLayout = (function(_React$Component) {
     this.onLayoutMaybeChanged(this.state.layout, this.props.layout);
   };
 
+  ReactGridLayout.prototype.componentDidUpdate = function componentDidUpdate(
+    prevProps
+  ) {
+    // Children were updated -- make sure to inform the parent.
+    if (
+      _react2.default.Children.count(prevProps.children) !==
+      _react2.default.Children.count(this.props.children)
+    ) {
+      this.props.onLayoutChange(this.state.layout);
+    }
+  };
+
   ReactGridLayout.getDerivedStateFromProps = function getDerivedStateFromProps(
     props,
     state
